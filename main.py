@@ -70,13 +70,3 @@ df = pd.DataFrame(list_to_csv,
                   columns=['Rank', 'Major', 'Early Career Pay', 'Mid-Career Pay', 'High Meaning Pay'])
 
 df.to_csv(r'highest_paying_jobs_updated.csv', index=False)
-
-print(list_to_csv)
-print(len(list_to_csv))
-print(len(total_ranks_list))
-print(len(total_majors_list))
-print(len(total_early_career_pay_list))
-print(len(total_mid_career_pay_list))
-print(len(total_high_meaning_list))
-
-
