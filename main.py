@@ -24,18 +24,14 @@ while page <= 34:
     career_pays = soup.find_all(name='td', class_='csr-col--right')
 
     # Lists for each page to add to the total lists
-    ranks_list = []
-    majors_list = []
+    ranks_list = [rank.getText().split(':')[1] for rank in ranks]
+    majors_list = [major.getText().split(':')[1] for major in majors]
+
     early_career_pay_list = []
     mid_career_pay_list = []
     high_meaning_list = []
 
-    for rank in ranks:
-        ranks_list.append(rank.getText().split(':')[1])
-
-    for job in majors:
-        majors_list.append(job.getText().split(':')[1])
-
+    # Use for loop because it's easier to read at this case
     for pay in career_pays:
         if pay.getText().split(':')[0] == 'Early Career Pay':
             early_career_pay_list.append(pay.getText().split(':')[1])
@@ -55,7 +51,6 @@ while page <= 34:
 list_to_csv = []
 
 for i in range(33):
-
     for n in range(25):
         data_to_csv = []
         data_to_csv.append(total_ranks_list[i][n])
