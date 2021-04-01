@@ -55,8 +55,9 @@ for i in range(33):
         data_to_csv = []
         data_to_csv.append(total_ranks_list[i][n])
         data_to_csv.append(total_majors_list[i][n])
-        data_to_csv.append(total_early_career_pay_list[i][n])
-        data_to_csv.append(total_mid_career_pay_list[i][n])
+        # Convert all pay values with $ sign from string to float dtype
+        data_to_csv.append(float(total_early_career_pay_list[i][n].split('$')[1].replace(',', '')))
+        data_to_csv.append(float(total_mid_career_pay_list[i][n].split('$')[1].replace(',', '')))
         data_to_csv.append(total_high_meaning_list[i][n])
 
         list_to_csv.append(data_to_csv)
